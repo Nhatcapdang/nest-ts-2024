@@ -7,17 +7,17 @@ WORKDIR /app
 # Copy package.json and package-lock.json (or yarn.lock) before other files
 # Leverage Docker cache to save time on dependency installation
 COPY package*.json ./
-COPY yarn.lock ./
+# COPY yarn.lock ./
 
 # Install dependencies
-RUN yarn install
+RUN npm run install
 
 # Copy the rest of your application code to the container
 COPY . .
 
 # Build the NestJS application
-RUN yarn prebuild
-RUN yarn build
+RUN npm run prebuild
+RUN npm run build
 
 # Expose the port that your NestJS app runs on
 EXPOSE 3000
