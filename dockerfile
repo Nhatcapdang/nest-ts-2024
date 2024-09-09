@@ -10,7 +10,7 @@ COPY package*.json ./
 # COPY yarn.lock ./
 
 # Install dependencies
-RUN npm run install
+RUN npm install
 
 # Copy the rest of your application code to the container
 COPY . .
